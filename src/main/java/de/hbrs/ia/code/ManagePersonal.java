@@ -1,19 +1,38 @@
 package de.hbrs.ia.code;
+
+import com.mongodb.client.MongoCollection;
+import de.hbrs.ia.model.EvaluationRecord;
+import de.hbrs.ia.model.EvaluationRecordEntry;
+import de.hbrs.ia.model.Salesman;
+import org.bson.Document;
+
 import java.util.List;
 
-/**
- * Code lines are commented for suppressing compile errors.
- */
 public interface ManagePersonal {
+    //method to insert a salesman into the database
+    void createSalesman(Salesman salesman);
 
-    // public void createSalesMan( SalesMan record );
+    // method to read a salesman from the database
+    Salesman readSalesman(int employeeID);
 
-    // public void addPerformanceReord( EvaluationRecord record , int sid );
+    // method to update a salesman in the database
+    void updateSalesman(Salesman salesman);
 
-    // public SalesMan readSalesMan( int sid );
+    // method to delete a salesman from the database
+    void deleteSalesman(int employeeID);
 
-    // public List<SalesMan> querySalesMan(String attribute , String key );
+    // method to query multiple salesman
+    List<Salesman> querySalesMan(String attribute, String key);
 
-    // public EvaluationRecord readEvaluationRecords( int sid );
+    // method to add an evaluation record to a salesman
+    void addEvaluationRecord(EvaluationRecord evaluationRecord);
 
+    // method to read the evaluation records of a salesman
+    List<EvaluationRecord> readEvaluationRecords(int employeeID);
+
+    // method to update the evaluation record of a salesman
+    void updateEvaluationRecord(EvaluationRecord evaluationRecord);
+
+    // method to delete the evaluation record of a salesman
+    void deleteEvaluationRecord(int employeeID, int year);
 }
